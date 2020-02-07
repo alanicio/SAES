@@ -5,7 +5,6 @@ class Materia(models.Model):
 	creditos=models.DecimalField(max_digits=2,decimal_places=2)
 	nivel=models.PositiveSmallIntegerField()
 	departamento=models.ForeignKey('Departamento.Departamento',on_delete=models.CASCADE)
-	#grupo=models.ManyToManyField(Grupo)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 		
