@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Departamento',
     'Materia',
     'Persona',
+    'Grupo',
 ]
 
 MIDDLEWARE = [
