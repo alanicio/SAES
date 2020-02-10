@@ -8,3 +8,10 @@ class Materia(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 		
+class MateriaInscrita(models.Model):
+	alumno=models.ForeignKey('Persona.Alumno',on_delete=models.CASCADE)
+	grupo_materia=models.ForeignKey('Grupo.GrupoMateria',on_delete=models.CASCADE)
+	
+
+	
+		
