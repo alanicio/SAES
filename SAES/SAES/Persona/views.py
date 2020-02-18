@@ -7,10 +7,10 @@ from django.middleware.csrf import get_token
 from rest_framework import viewsets
 from .serializers import *
 
-def index(request):
-    usuarios=User.objects.all()
-    data=serializers.serialize('json',usuarios)
-    return HttpResponse(data,content_type='application/json')
+# def index(request):
+#     usuarios=User.objects.all()
+#     data=serializers.serialize('json',usuarios)
+#     return HttpResponse(data,content_type='application/json')
 
 class PersonaViewSet(viewsets.ModelViewSet):
 	"""
@@ -21,11 +21,11 @@ class PersonaViewSet(viewsets.ModelViewSet):
 
 		
 
-def store(request):
-	llave=request.POST.get('llave')
-	return JsonResponse({'llave':llave})
+# def store(request):
+# 	llave=request.POST.get('llave')
+# 	return JsonResponse({'llave':llave})
 
-def CSRF_token(request):
-	#to do , regresar el token csrf al cliente
-	rand_token = uuid4()
-	return JsonResponse({"token":rand_token})
+# def CSRF_token(request):
+# 	#to do , regresar el token csrf al cliente
+# 	rand_token = uuid4()
+# 	return JsonResponse({"token":rand_token})
