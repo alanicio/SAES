@@ -18,12 +18,23 @@ class Email extends React.Component{
 	}
 }
 
+class User extends React.Component{
+	render(){
+		return(
+			<Form.Group controlId="formBasicUser">
+				<Form.Label>User</Form.Label>
+				<Form.Control type="text" placeholder="Enter User" name="username"/>
+			</Form.Group>
+			);	
+	}
+}
+
 class Pass extends React.Component{
 	render(){
 		return(
 			<Form.Group controlId="formBasicPassword">
 				<Form.Label>Password</Form.Label>
-				<Form.Control type="password" placeholder="Password" />
+				<Form.Control type="password" placeholder="Password" name="password" />
 			</Form.Group>
 			);	
 	}
@@ -43,5 +54,6 @@ class Submit extends React.Component{
 export {
 	Email,
 	Pass,
-	Submit
+	Submit,
+	User
 }
