@@ -1,4 +1,4 @@
-import React from 'react';
+	import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar} from 'react-bootstrap';
@@ -20,10 +20,12 @@ class Login extends React.Component{
 	send=(ev)=>{
 		alert("prueba1");
 		ev.preventDefault();
-		axios.post('/api/register', 'a')
+		axios.post('http://127.0.0.1:8000/api/auth/token/login', { username: 'administrador', password: '12345678' })
 			.then(function(response){
 				console.log(response);
-		//Perform action based on response
+			//Perform action based on response
+			}).catch(function(e){
+				console.log(e);
 			})
 	}
 
