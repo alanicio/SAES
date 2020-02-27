@@ -1,4 +1,4 @@
-	import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Navbar} from 'react-bootstrap';
@@ -18,11 +18,15 @@ class Login extends React.Component{
 	// }
 
 	send=(ev)=>{
-		alert("prueba1");
 		ev.preventDefault();
-		axios.post('http://127.0.0.1:8000/api/auth/token/login', { username: 'administrador', password: '12345678' })
+		// console.log(this.refs.usuario.state.usuario);
+		// this.refs.usuario.state.usuario me permite accceder a las propiedades del ref, el nombre ref
+		// esta definido cuando uso el componente
+		axios.post('http://127.0.0.1:8000/api/auth/token/login', { username: this.refs.usuario.state.usuario,
+																	 password: this.refs.pass.state.password })
 			.then(function(response){
-				console.log(response);
+				console.log(response.data.auth_token);
+				localStorage.setItem('token',response.data.auth_token)
 			//Perform action based on response
 			}).catch(function(e){
 				console.log(e);
@@ -31,9 +35,10 @@ class Login extends React.Component{
 
 	constructor(){
 		super();
-		this.state={
-			formFields:{data:''}
-		}
+		// this.state={
+		// 	usuario:'',
+		// 	pass:'',
+		// }
 	}
 	render(){
 		const style={
@@ -48,9 +53,11 @@ class Login extends React.Component{
 			// 	<Pass/>
 			// 	<Submit/>
 			// </form>
+
+			// ref me permite acceder a las propiedades del componente
 			<form style={style} method="post" onSubmit={(ev)=>this.send(ev)}>
-				<User/>
-				<Pass/>
+				<User ref="usuario"/>
+				<Pass ref="pass"/>
 				<Submit/>
 			</form>
 			);
